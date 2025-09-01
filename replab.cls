@@ -1,12 +1,12 @@
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{replab}[2022/12/20 v1.0]
+\ProvidesClass{replab}[]
 
 % --- Configuración básica ---
 
 \LoadClass[11pt, letterpaper, twoside, twocolumn]{article}
 
 % Configuración de idioma
-\RequirePackage[english, spanish, mexico, es-noitemize, es-noindentfirst, ]{babel}
+\RequirePackage[english, spanish, mexico, es-noitemize, es-noindentfirst]{babel}
 
 % Matemáticas avanzadas
 \RequirePackage[tbtags]{mathtools}% Funciones matemáticas avanzadas (carga amsmath internamente)
@@ -43,7 +43,7 @@
 % Bibliografía
 \RequirePackage[backend=biber,bibstyle=ieee,citestyle=numeric-comp,sorting=none]{biblatex}
 \RequirePackage[style=mexican]{csquotes}
-\usepackage{authblk}
+\RequirePackage{authblk}
 \renewcommand\Authand{, }
 \renewcommand\Authands{, }
 \renewcommand{\Affilfont}{\scriptsize}
@@ -125,19 +125,22 @@
     	\long\def\@makefntext##1{\parindent 1em\noindent
     			\hb@xt@1.8em{%
     			  \hss\@textsuperscript{\normalfont\@thefnmark}}##1}%
-    
+
+
         \begin{center}%
 			\begin{tblr}{
-			colspec = {Q[c, wd=.125\textwidth] Q[c, wd=.6\textwidth] Q[c, wd=.125\textwidth]},
-			rows = {m} 
+			colspec = {Q[c, wd=.125\textwidth] Q[c, wd=.65\textwidth] Q[c, wd=.125\textwidth]},
+			rows = {m, abovesep=0pt, belowsep=0pt}
 			}
 				\includegraphics[width=.125\textwidth]{unam} &
 				
+				\raisebox{0.75cm}{%
 				\begin{tabular}{c}
-					\bfseries\large\the\subject \\ [0.25cm]
-					\bfseries\large\@title \\ [0.25cm]
-					\bfseries\Large\the\subtitle \\ [0.25cm]
-				\end{tabular} &
+					\bfseries\large\the\subject \\[0.25cm]
+					\bfseries\large\@title \\[0.25cm]
+					\bfseries\Large\the\subtitle \\[0.25cm]
+				\end{tabular}%
+				} &
 			
 				\includegraphics[width=.125\textwidth]{fcunam}
 			\end{tblr}
